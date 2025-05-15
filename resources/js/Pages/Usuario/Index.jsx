@@ -8,11 +8,13 @@ export default function Index({ auth, usuarios }) {
     const [allUsuarios, setAllUsuarios] = useState([]);
 
     useEffect(() => {
+        console.log("Usuarios recibidos:", usuarios); // 👈 Agrega esto
         if (usuarios && Array.isArray(usuarios.data)) {
             setAllUsuarios(usuarios.data);
             setFilteredUsuarios(usuarios.data);
         }
     }, [usuarios]);
+    
 
     const handleSearch = () => {
         let filtered = allUsuarios;

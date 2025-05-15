@@ -12,8 +12,13 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::all(); 
-        return Inertia::render("Usuario/Index", ['usuarios' => $usuarios]);
+        $usuarios = Usuario::all(); // o con paginación: User::paginate(10);
+    
+        return Inertia::render('Usuario/Index', [
+            'usuarios' => [
+                'data' => $usuarios
+            ]
+        ]);
     }
 
     /**
